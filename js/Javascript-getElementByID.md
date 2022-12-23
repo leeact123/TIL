@@ -1,13 +1,13 @@
-## #Javascript-getElementByID
+# Javascript-getElementByID
 
-## ##자바스크립트로 HTML 내용 조작하기
+## 자바스크립트로 HTML 내용 조작하기
 
 - getElementByID
 - innerHTML
 - styleColor
 - fontSize
 
-## ##How to
+## How to
 
 1. HTML 태그에 id를 추가한다.
 2. `getElementByID`를 사용해서 조작하고자 하는 태그의 id를 가져온다.
