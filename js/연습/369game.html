@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>369game</title>
+</head>
+<body>
+    
+    <form>
+        <input type="text">
+        <button>제출</button>
+    </form>
+
+    <script>
+        const input = document.querySelector("input");
+        const button = document.querySelector("button");
+
+        function game369() {
+            if (input.value % 9 == 0) {
+                alert("짝짝짝");
+            } else if(input.value % 6 == 0) {
+                alert("짝짝"); 
+            } else if(input.value % 3 == 0) {
+                alert("짝");  
+            } else {
+                alert("통과");
+            }
+        }
+
+        button.addEventListener("click", game369);
+
+        /*
+        function game369(num) {
+            if (num % 3 == 0) {
+                console.log("짝");
+            }else {
+                console.log("통과");
+            }
+        }
+
+        game369(3);
+        */
+
+    </script>
+
+</body>
+</html>

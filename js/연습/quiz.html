@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <p>태조 이성계가 태어난 년도는?</p>
+<input type="text" id="answer">
+<button id="send-answer">제출</button>
+
+<script>
+  const answer = document.querySelector("#answer");
+  const send = document.querySelector("#send-answer");
+  let count = 0;
+ 
+  function quiz() {
+    count += 1;
+    if (answer.value == "1335") {
+        alert("정답");
+    } else if (answer.value != "1335" && count >=3 ) {
+        alert("멍청아")
+    }
+  }
+
+  send.addEventListener("click", quiz);
+
+</script>
+    
+</body>
+</html>
