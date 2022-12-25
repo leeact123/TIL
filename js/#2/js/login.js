@@ -1,17 +1,32 @@
-document.querySelector("#modal").addEventListener("click", function () {
-    document.querySelector(".black-bg").classList.add("open-modal");
-  })
+//로그인창 열기
+const loginButton = document.querySelector("#modal");
+const loginScreen = document.querySelector(".black-bg");
 
-  document.querySelector("#close").addEventListener("click", function () {
-    document.querySelector(".black-bg").classList.remove("open-modal");
-  })
+function openLoginScreen() {
+  loginScreen.classList.add("open-modal");
+}
+loginButton.addEventListener("click",openLoginScreen);
 
-  document.querySelector(".navbar-toggler").addEventListener("click", function () {
-    document.querySelector(".list-group").classList.
-    toggle("show");
-  })
+//로그인창 닫기
+const loginCloseButton = document.querySelector("#close");
 
-   //로그인창 안에 input
+function closeLoginScreen() {
+  loginScreen.classList.remove("open-modal");
+}  
+loginCloseButton.addEventListener("click",closeLoginScreen);
+
+//메뉴창
+const toggleButton = document.querySelector(".navbar-toggler");
+const menuList = document.querySelector(".list-group");
+
+function openToggle() {
+  menuList.classList.
+  toggle("show");
+}
+
+toggleButton.addEventListener("click",openToggle);
+
+   //로그인창 안에 input창
    const idInput = document.querySelector("#id-input");
    const passInput = document.querySelector("#password-input");
    const loginForm = document.querySelector("#login-form")
