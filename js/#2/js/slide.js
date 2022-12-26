@@ -27,7 +27,6 @@ slideButton3.addEventListener("click", imgSlide3);
 
 //이전,다음 버튼
 let currentImg = 1;
-
 function previousSlide() {
     
     if (currentImg == 3) {
