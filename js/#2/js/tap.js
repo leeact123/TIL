@@ -2,20 +2,45 @@ const tabBtn = document.querySelectorAll(".tab-button");
 const contentBox = document.querySelectorAll(".tab-content");
 
 
-    for (let i = 0; i < tabBtn.length; i++){
+//     for (let i = 0; i < tabBtn.length; i++){
     
-        tabBtn[i].addEventListener("click", function(){
+//         tabBtn[i].addEventListener("click", function(){
+//         tabBtn.forEach(function(tab){
+//         tab.classList.remove("selected");
+//         });
+//         tabBtn[i].classList.add("selected");
+//         contentBox.forEach(function(content){
+//         content.classList.remove("show");
+//         });
+//         contentBox[i].classList.add("show");
+//     })
+// }
+
+
+// for (let i = 0; i < tabBtn.length; i++){
+    
+//     tabBtn[i].addEventListener("click", function(){
+//     openTab(i);
+// })
+// }
+
+function openTab(num) {
         tabBtn.forEach(function(tab){
         tab.classList.remove("selected");
         });
-        tabBtn[i].classList.add("selected");
+        tabBtn[num].classList.add("selected");
         contentBox.forEach(function(content){
         content.classList.remove("show");
         });
-        contentBox[i].classList.add("show");
-    })
+        contentBox[num].classList.add("show");
 }
 
+const btnList = document.querySelector(".list");
+
+btnList.addEventListener("click", function(e){
+  openTab(e.target.dataset.id);
+  console.log(e.target.dataset.id);
+})
 
 
 
