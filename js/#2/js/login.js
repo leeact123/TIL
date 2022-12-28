@@ -14,6 +14,18 @@ function closeLoginScreen() {
   loginScreen.classList.remove("open-modal");
 }  
 loginCloseButton.addEventListener("click",closeLoginScreen);
+ 
+loginScreen.addEventListener("click", function(e){
+  
+  // e.target; //유저가 실제로 누른거
+  // e.currentTarget; //이벤트리스너 달린곳
+  // e.preventDefault; //이벤트 기본동작 막기
+  // e.stopPropagation; // 상위요소로 이벤트버블링 막기
+ 
+if (e.target == loginScreen) {
+  loginScreen.classList.remove("open-modal");
+}
+})
 
 //메뉴창
 const toggleButton = document.querySelector(".navbar-toggler");
@@ -44,3 +56,6 @@ toggleButton.addEventListener("click",openToggle);
      }
  
    });
+
+  
+
