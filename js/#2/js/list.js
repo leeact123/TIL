@@ -10,7 +10,7 @@ var products = [
   for(i=0; i < products.length; i++) {
       
     cardTitle[i].innerHTML = products[i].title;
-    cardPrice[i].innerHTML = products[i].price;
+    cardPrice[i].innerHTML = `가격 : ${products[i].price}`;
 
   }
 
