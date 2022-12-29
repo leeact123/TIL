@@ -39,7 +39,7 @@ const btnList = document.querySelector(".list");
 
 btnList.addEventListener("click", function(e){
   openTab(e.target.dataset.id);
-  console.log(e.target.dataset.id);
+  
 })
 
 
@@ -82,4 +82,16 @@ btnList.addEventListener("click", function(e){
 // }
 
 // tabBtn[2].addEventListener("click", showSelectTab3);
+
+
+
+
+const productName = document.querySelector("#product-name");
+const productPrice = document.querySelector("#product-price");
+
+let car2 = {name : "소나타", price: [50000, 3000, 4000]}; 
+
+
+productName.innerHTML = car2.name;
+productPrice.innerHTML = car2.price[0];
 
