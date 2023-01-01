@@ -95,16 +95,36 @@ let car2 = {name : "소나타", price: [50000, 3000, 4000]};
 productName.innerHTML = car2.name;
 productPrice.innerHTML = car2.price[0];
 
-
+const productForm = document.querySelector(".my-5");
 const productChoice = document.querySelector(".form-select");
-const shirtSize = document.querySelector(".shirt-size");
+const productOption = document.querySelector(".product-option");
 
 function showSize() {
   if(productChoice.value == "셔츠"){   
-  shirtSize.classList.remove("form-hide");
-} else {
-  shirtSize.classList.add("form-hide");
+  productOption.classList.remove("form-hide");
+  let sizeOption2 = `<option>95</option>
+  <option>100</option>
+  <option>105</option>`;
+  productOption.innerHTML = sizeOption2;
+} else if (productChoice.value == "모자"){
+  productOption.classList.add("form-hide");
+} else if (productChoice.value == "바지"){
+  productOption.classList.remove("form-hide");
+  let sizeOption = `<option>28</option>
+  <option>30</option>`;
+  productOption.innerHTML = sizeOption;
 }
 }
 
 productChoice.addEventListener("click", showSize);
+
+
+
+
+
+
+
+
+let template = "<p>안녕</p>";
+document.querySelector("#test").insertAdjacentHTML("beforeend", template);
+//$("#test").append(template); 
