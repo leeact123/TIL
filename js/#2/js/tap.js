@@ -95,3 +95,16 @@ let car2 = {name : "소나타", price: [50000, 3000, 4000]};
 productName.innerHTML = car2.name;
 productPrice.innerHTML = car2.price[0];
 
+
+const productChoice = document.querySelector(".form-select");
+const shirtSize = document.querySelector(".shirt-size");
+
+function showSize() {
+  if(productChoice.value == "셔츠"){   
+  shirtSize.classList.remove("form-hide");
+} else {
+  shirtSize.classList.add("form-hide");
+}
+}
+
+productChoice.addEventListener("click", showSize);
