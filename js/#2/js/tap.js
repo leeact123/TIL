@@ -99,20 +99,25 @@ const productForm = document.querySelector(".my-5");
 const productChoice = document.querySelector(".form-select");
 const productOption = document.querySelector(".product-option");
 
+let pants = [28, 30, 32];
+let shirts = [95, 100, 105];
+
 function showSize() {
   if(productChoice.value == "셔츠"){   
   productOption.classList.remove("form-hide");
-  let sizeOption2 = `<option>95</option>
-  <option>100</option>
-  <option>105</option>`;
-  productOption.innerHTML = sizeOption2;
+  productOption.innerHTML = "";
+ shirts.forEach(function(data){
+  productOption.insertAdjacentHTML("beforeend", `<option>${data}</option>`);
+ }) 
+ 
 } else if (productChoice.value == "모자"){
   productOption.classList.add("form-hide");
 } else if (productChoice.value == "바지"){
   productOption.classList.remove("form-hide");
-  let sizeOption = `<option>28</option>
-  <option>30</option>`;
-  productOption.innerHTML = sizeOption;
+  productOption.innerHTML = "";
+  pants.forEach(function(item) {
+  productOption.insertAdjacentHTML("beforeend", `<option>${item}</option>`);
+  })
 }
 }
 
