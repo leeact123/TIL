@@ -7,14 +7,48 @@ var products = [
 
   const productBox = document.querySelector(".row");
 
-  for (i = 0; i < products.length; i++){
-  productBox.insertAdjacentHTML("beforeend",
+//   for (i = 0; i < products.length; i++){
+//   productBox.insertAdjacentHTML("beforeend",
+//   `<div class="col-sm-4">
+//   <img src="https://via.placeholder.com/600" class="w-100">
+//   <h5>${products[i].title}</h5>
+//   <p>가격 : ${products[i].price}</p>
+// </div>`)
+//   }
+
+function createProduct(dataFile){
+  dataFile.forEach((a, i) =>{
+  let productTemplate =
   `<div class="col-sm-4">
   <img src="https://via.placeholder.com/600" class="w-100">
-  <h5>${products[i].title}</h5>
-  <p>가격 : ${products[i].price}</p>
-</div>`)
-  }
+  <h5>${a.title}</h5>
+  <p>가격 : ${a.price}</p>
+</div>`;
+productBox.insertAdjacentHTML("beforeend", productTemplate);
+})
+}
+createProduct(products);
+
+const moreBtn = document.querySelector("#more-btn");
+let count = 0;
+
+function getProductsData(){
+count++
+if (count >= 3) {
+  moreBtn.style.display = "none";
+}
+fetch(`https://codingapple1.github.io/js/more${count}.json`)
+.then(res => res.json())
+.then(data => {
+ createProduct(data);
+})
+.catch(error => {
+  console.log("failed");
+})
+
+}
+
+moreBtn.addEventListener("click", getProductsData);
 
 //ajax get
 // $.get('https://codingapple1.github.io/hello.txt').done(function(data){
