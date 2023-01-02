@@ -30,14 +30,14 @@ productBox.insertAdjacentHTML("beforeend", productTemplate);
 createProduct(products);
 
 const moreBtn = document.querySelector("#more-btn");
-let count = 0;
+let clickCount = 0;
 
 function getProductsData(){
-count++
-if (count >= 3) {
+clickCount++
+if (clickCount >= 3) {
   moreBtn.style.display = "none";
-}
-fetch(`https://codingapple1.github.io/js/more${count}.json`)
+}//3번 이상 클릭시 더보기 버튼 사라지게 한다. 아니면 추가 목록이 닫히게 만들 수도 있을 듯. 생각해볼것
+fetch(`https://codingapple1.github.io/js/more${clickCount}.json`)
 .then(res => res.json())
 .then(data => {
  createProduct(data);
