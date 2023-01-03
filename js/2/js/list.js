@@ -41,11 +41,11 @@ reverseTitleSort.addEventListener("click", titleSort);
 const priceLimit = document.querySelector("#under-price");
 
 function priceLimitSort() {
-  let filterArray = products.filter(function(a){
+  let newProducts = products.filter(function(a){
     return a.price <= 60000;
   });
   productBox.innerHTML = "";
-  createProduct(filterArray);
+  createProduct(newProducts);
 }
 
 priceLimit.addEventListener("click", priceLimitSort);
