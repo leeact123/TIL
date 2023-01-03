@@ -1,3 +1,7 @@
+const productBox = document.querySelector(".row");
+const priceSortBtn = document.querySelector("#price");
+
+
 var products = [
     { id : 0, price : 70000, title : 'Blossom Dress' },
     { id : 1, price : 50000, title : 'Springfield Shirt' },
@@ -5,7 +9,47 @@ var products = [
   ];
 
 
-  const productBox = document.querySelector(".row");
+//가격순정렬
+function priceSort(){
+  products.sort(function(a, b) {
+    return a.price - b.price
+  })
+
+  productBox.innerHTML = "";
+  createProduct(products);
+
+}
+
+priceSortBtn.addEventListener("click", priceSort);
+
+//다나가순 정렬하기
+const reverseTitleSort = document.querySelector("#title-reverse");
+
+function titleSort(){
+products.sort(function(a, b) {
+  if (a.title > b.title) return -1;
+  else if (b.title > a.title) return 1;
+  else return 0;
+});
+  productBox.innerHTML = "";
+  createProduct(products);
+}
+
+reverseTitleSort.addEventListener("click", titleSort);
+
+//6만원이하 상품보기
+const priceLimit = document.querySelector("#under-price");
+
+function priceLimitSort() {
+  let filterArray = products.filter(function(a){
+    return a.price <= 60000;
+  });
+  productBox.innerHTML = "";
+  createProduct(filterArray);
+}
+
+priceLimit.addEventListener("click", priceLimitSort);
+
 
 //   for (i = 0; i < products.length; i++){
 //   productBox.insertAdjacentHTML("beforeend",
