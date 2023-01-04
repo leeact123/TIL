@@ -63,10 +63,11 @@ priceLimit.addEventListener("click", priceLimitSort);
 function createProduct(dataFile){
   dataFile.forEach((a, i) =>{
   let productTemplate =
-  `<div class="col-sm-4">
+  `<div class="col-sm-4 product-col">
   <img src="https://via.placeholder.com/600" class="w-100">
   <h5>${a.title}</h5>
   <p>가격 : ${a.price}</p>
+  <button id="buy">구매</button>
 </div>`;
 productBox.insertAdjacentHTML("beforeend", productTemplate);
 })
@@ -93,6 +94,36 @@ fetch(`https://codingapple1.github.io/js/more${clickCount}.json`)
 }
 
 moreBtn.addEventListener("click", getProductsData);
+
+
+const productCol = document.querySelector(".product-col");
+const buyBtn = document.querySelectorAll("#buy");
+
+function saveProduct(e) {
+  let productName = e.target.previousElementSibling.previousElementSibling.innerHTML;
+  console.log(productName);
+  let newTitle = JSON.stringify([productName]);
+  
+  if(localStorage.getItem("cart") != null){
+      let getIT = JSON.parse(localStorage.cart);
+      getIT.push(productName);
+      let addItem = JSON.stringify(getIT);
+      localStorage.setItem("cart", addItem);
+  } else {
+      localStorage.setItem("cart", newTitle);
+  }
+}
+ 
+buyBtn[0].addEventListener("click", saveProduct);
+buyBtn[1].addEventListener("click", saveProduct);
+buyBtn[2].addEventListener("click", saveProduct);
+
+// let arr = [1,2,3];
+// let newArr = JSON.stringify(arr);
+
+// localStorage.setItem("num", newArr);
+// let getArr = localStorage.getItem("num");
+// console.log(JSON.parse(getArr));
 
 //ajax get
 // $.get('https://codingapple1.github.io/hello.txt').done(function(data){
