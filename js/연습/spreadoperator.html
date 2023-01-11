@@ -44,9 +44,43 @@
         // var o2 = { ...o1, c: 3};
         // console.log(o2);
 
-        var o1 = { a: 1, b: 2 };
-        var o2 = { a: 2, ...o1};
-        console.log(o2);
+        // var o1 = { a: 1, b: 2 };
+        // var o2 = { a: 2, ...o1};
+        // console.log(o2);
+
+        function add(a,b,c){
+            console.log(a + b + c);
+        }
+
+        var arr = [10, 20, 30];
+        add(10, 20, 30); //60
+        
+        add(arr[0], arr[1], arr[2]); //60
+
+        add.apply(undefined, arr); //60 ,옛날방식
+
+        add(...arr);//60, 요즘방식
+
+
+        //person.인사()를 person2에 적용하고 싶을때 person.인사.apply(person2)
+        var person = {
+            인사 : function(){
+                console.log(this.name + 'hi');
+            }
+        }
+
+        var person2 = {
+            name : 'sony'
+        }
+        person.인사(); //undefinedhi
+        person.인사.apply(person2); //sonyhi
+        person.인사.call(person2);//sonyhi
+
+        apply call은 서로비슷하다
+        apply는 파라미터를 array형태로 집어넣기가능
+        person.인사.apply(person2, [1,2]);
+        person.인사.call(person2, 1,2);
+
     </script>
 
 </body>
