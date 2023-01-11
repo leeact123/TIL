@@ -88,3 +88,47 @@ var o2 = { ...o1, a: 2 }; // { a : 2, b : 2} a가 중복 될 때 뒤에 값이 �
 var o1 = { a: 1, b: 2 };
 var o2 = { a: 2, ...o1 }; // { a : 1, b: 2}
 ```
+
+4. array를 풀어헤쳐서 함수 파라미터로 사용
+
+```js
+function add(a, b, c) {
+  console.log(a + b + c);
+}
+
+var arr = [10, 20, 30];
+add(10, 20, 30); //60
+
+add(arr[0], arr[1], arr[2]); //60
+
+add.apply(undefined, arr); //60 ,옛날방식 , add함수를 undefined에서 실행하는데 파라미터로 arr를 풀어헤쳐서 실행하라는뜻.
+
+add(...arr); //60, 요즘방식
+```
+
+## apply, call 함수 개념
+
+person.인사()를 person2에서 사용하고 싶을때 person.인사.apply(person2)를 쓴다.
+실행할함수.apply(적용할곳)
+
+```js
+var person = {
+  인사: function () {
+    console.log(this.name + "hi");
+  },
+};
+
+var person2 = {
+  name: "sony",
+};
+person.인사(); //undefinedhi
+person.인사.apply(person2); //sonyhi
+person.인사.call(person2); //sonyhi
+
+person.인사.apply(person2, [1, 2]);
+person.인사.call(person2, 1, 2);
+```
+
+apply call은 사용방법, 실행 결과가 같다.
+apply는 파라미터를 [array]로 집어넣기가능
+call은 따로따로 다 넣어줘야 한다.
